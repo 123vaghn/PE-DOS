@@ -1,0 +1,33 @@
+
+base-dir	= /mnt/z
+tools		= /home/zyzz/cross/bin
+
+sou-dir = $(base-dir)/source
+obj-dir = $(base-dir)/obj
+bin-dir = $(base-dir)/bin
+
+# create object files from source files
+sources = $(base-dir)/INIT.OBJ
+
+# create system files from object files
+objects = $(base-dir)/DOSBIOS.SYS
+
+all: $(sources) $(objects)
+
+#
+# LINK
+#
+
+$(base-dir)/DOSBIOS.SYS: $(base-dir)/INIT.OBJ
+	$(tools)/i686-elf-ld $^ -o $@ -T$(base-dir)/DOSBIOS.LD
+
+#
+# ASSEMBLER
+#
+
+$(base-dir)/INIT.OBJ: $(base-dir)/INIT.ASM
+	nasm -f elf32 $< -o $@ -O0
+
+#
+# COMPILER
+#

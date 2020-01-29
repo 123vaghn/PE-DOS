@@ -1,0 +1,27 @@
+
+  MAIN API HEADERS ARE
+
+    - DOSDEF.H contains
+    
+      - INTDEF.H
+      - STDDEF.H
+		
+    - CMDDEF.H contains
+
+      - INTDEF.H
+      - STDDEF.H
+
+  DOSBIOS.sys
+    
+    - LNK01.LD
+    - INIT.ASM
+    - STARTUP.ASM
+    - DOSFUNC.C
+    - MM.ASN
+    - CPM.ASM
+
+  COMMAND.com
+
+    - LNK02.LD
+    - SHELL.C
+    - CMDINT.ASM
